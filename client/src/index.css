@@ -1,0 +1,67 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f8ff; /* AliceBlue - a very light blue */
+  color: #333; /* Dark grey text for contrast */
+}
+
+* {
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+a {
+  color: #0056b3; /* Standard link blue */
+  text-decoration: none; /* Remove underline from links */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid #add8e6; /* LightBlue border */
+  background-color: #e0f2fe; /* Lighter blue background */
+  color: #0056b3;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #bde0fe; /* Slightly darker blue on hover */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%; /* Default to full width */
+  margin-bottom: 10px; /* Spacing below inputs */
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resize */
+  min-height: 80px;
+}
+
+/* Basic Layout Idea (can be refined in components) */
+.container {
+  max-width: 960px; /* Limit content width */
+  margin: 20px auto; /* Center container with margin */
+  padding: 0 15px;
+}
+
+/* Add more global styles or utility classes as needed */

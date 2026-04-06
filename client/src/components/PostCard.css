@@ -1,0 +1,137 @@
+/* Styles for PostCard Component */
+
+.postCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure media doesn't overflow */
+}
+
+.postHeader {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    position: relative; /* Needed if delete button uses absolute positioning */
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.userInfo {
+    flex-grow: 1;
+}
+
+.userInfo a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.userInfo a:hover {
+    text-decoration: underline;
+}
+
+.postTimestamp {
+    color: #777;
+    font-size: 0.85em;
+}
+
+.postCategory {
+    font-size: 0.8em;
+    color: #888;
+    background-color: #f0f0f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 10px;
+    align-self: center;
+}
+
+/* Media Carousel already has its own styles */
+
+.postContent {
+    padding: 15px;
+    white-space: pre-wrap; /* Respect line breaks */
+    word-wrap: break-word; /* Break long words */
+}
+
+.postFooter {
+    padding: 10px 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between; /* Space out likes and comments */
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.likeButton {
+    /* Basic button styling, can inherit global styles */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.likeButton svg {
+    margin-right: 5px;
+    fill: currentcolor; /* Use text color for fill */
+}
+
+.likeButton.liked {
+    color: #e0245e; /* Highlight color when liked */
+    font-weight: bold;
+}
+
+.likeButton:hover {
+    color: #e0245e;
+}
+
+.commentLink {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.commentLink:hover {
+    text-decoration: underline;
+}
+
+.postError {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+.deleteButton {
+    /* Position top-right or similar */
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 1.4em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.deleteButton:hover {
+    color: #f00; /* Red on hover */
+}
+
+.deleteButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+} 

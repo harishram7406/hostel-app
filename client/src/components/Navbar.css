@@ -1,0 +1,69 @@
+/* Navbar Styles */
+
+.navbar {
+    background-color: #add8e6; /* LightBlue */
+    padding: 10px 0;
+    color: #002b4d; /* Darker blue text */
+    border-bottom: 1px solid #9acae6; /* Slightly darker border */
+}
+
+.navbarContainer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoLink {
+    color: #002b4d;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navLinksContainer {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for NavLink */
+.navLink {
+    color: #002b4d;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 0; /* Add some padding for better click area */
+    position: relative; /* For active indicator */
+}
+
+.navLink.active {
+    font-weight: bold;
+    /* Add a visual indicator for active link, e.g., underline or border */
+}
+
+.navLink.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #002b4d; /* Match text color */
+}
+
+.logoutButton {
+    margin-left: 15px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #f8d7da; /* Lighter red for logout button */
+    border: 1px solid #f5c6cb;
+    color: #721c24; /* Dark red text */
+    cursor: pointer;
+    border-radius: 4px; /* Add rounded corners */
+    transition: background-color 0.2s ease;
+}
+
+.logoutButton:hover {
+    background-color: #f1c1c6;
+} 

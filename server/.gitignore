@@ -1,0 +1,8 @@
+# Environment variables
+.env
+
+# Dependencies
+node_modules/
+
+# Uploads folder (if you decide not to commit uploads)
+# uploads/ 

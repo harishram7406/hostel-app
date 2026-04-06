@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment and secrets (do not commit real credentials)
+.env
+server/.env
+client/.env
+
+# Build output
+client/build/
+dist/
+
+# Uploads (keep folder in git, ignore user files)
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs and OS noise
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test / coverage
+coverage/
+.nyc_output/

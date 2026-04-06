@@ -1,0 +1,103 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050; /* Ensure it's above other content like sidebars */
+}
+
+.modalContent {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    min-width: 400px; /* Minimum width */
+    max-width: 90%;  /* Maximum width */
+}
+
+.modalContent h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.modalActions button {
+    margin-left: 10px;
+    /* Uses global button styles */
+}
+
+.modalActions button[type="button"] { /* Style cancel button differently */
+     background-color: #f8f9fa;
+     border-color: #dee2e6;
+     color: #495057;
+}
+.modalActions button[type="button"]:hover {
+     background-color: #e2e6ea;
+}
+
+/* Shared form group styling within modals */
+.modalContent .form-group {
+    margin-bottom: 15px;
+}
+
+.modalContent .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modalContent .form-group input[type="text"],
+.modalContent .form-group textarea {
+    width: 100%;
+    box-sizing: border-box; /* Include padding in width */
+    /* Uses global input styles */
+}
+
+.modalContent .error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Style for indicating selected file name */
+.fileNameIndicator {
+    font-size: 0.8em;
+    margin-left: 10px;
+    color: #555; /* Optional: Slightly muted color */
+    display: inline-block; /* Ensure margin-left applies correctly */
+}
+
+/* Style for success messages in modals */
+.success-message {
+    color: #155724; /* Bootstrap success green */
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Style for select dropdowns within modals */
+.modalContent select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    box-sizing: border-box;
+} 

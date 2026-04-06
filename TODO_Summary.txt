@@ -1,0 +1,129 @@
+## Project Status & Next Steps
+
+Date: [Current Date - Please Fill In]
+
+### Summary of Work Completed:
+
+1.  **Frontend Styling Refactor:**
+    *   Removed inline styles from all major components and pages (Navbar, PostCard, ProfilePage, Forms, Modals, etc.).
+    *   Created dedicated external CSS files for each component/page.
+    *   Updated components to use `className` attributes and import corresponding CSS.
+    *   Reviewed global `index.css`.
+    *   *Result:* Improved styling organization, maintainability, and consistency.
+
+2.  **Backend API Implementation (Node.js/Express/MongoDB):**
+    *   Set up server structure with routes, controllers, models.
+    *   Added dependencies (`bcryptjs`, `jsonwebtoken`, `dotenv`).
+    *   Configured environment variables (`.env` - *Requires manual creation/population*).
+    *   Defined Mongoose models: `User` (with password hashing), `Post`, `Comment`, `DirectMessage`, `Notification`, `FriendRequest`.
+    *   Implemented controllers and routes for core features:
+        *   Auth: Register, Login
+        *   Users: Get/Update Profile
+        *   Friends: Request, Accept, Reject, Cancel, Remove, Status Check
+        *   Posts: Create, Get Feed/Single, Like, Comment, Search
+        *   DMs: Get Conversation, Send Message
+        *   Notifications: Get, Mark Read
+    *   Created middleware for JWT authentication (`protect`) and file uploads (`upload`).
+    *   Applied `protect` middleware to secure relevant routes.
+    *   Updated controllers to use `req.user._id` from authenticated token.
+    *   *Result:* Functional backend API matching frontend requirements.
+
+3.  **Frontend API Integration:**
+    *   Created centralized Axios instance (`apiClient`) with interceptor.
+    *   Interceptor automatically adds JWT `Authorization: Bearer <token>` header from `localStorage`.
+    *   Updated all frontend components making API calls to use `apiClient`.
+    *   Removed redundant `API_URL` constants and manual `userId` passing.
+    *   *Result:* Standardized and cleaner frontend API calls with automatic auth handling.
+
+4.  **Environment & Setup:**
+    *   Installed server & client dependencies (`npm install`).
+    *   Created `server/.gitignore` (includes `.env`, `node_modules`).
+    *   Created `server/.env` (manually populated by user with `MONGO_URI`, `JWT_SECRET`).
+    *   Confirmed `server/uploads` directory exists.
+    *   Confirmed server connection to MongoDB and successful start (`npm start`).
+    *   Confirmed client build process works (`npm run build`).
+
+5.  **Real-time Features (WebSockets - Socket.IO):**
+    *   Installed `socket.io` (server) & `socket.io-client` (client).
+    *   Integrated Socket.IO into `server/server.js` (HTTP server wrapper, CORS, connection handlers).
+    *   Implemented basic in-memory user-socket mapping on server (connect/disconnect, `storeUserId` event).
+    *   Added middleware (`attachIo.js`) to attach `io` instance & `userSockets` map to `req` object.
+    *   Updated `dmController` (`sendDirectMessage`) to emit `newMessage` event to specific recipient socket.
+    *   Updated `friendController` (`createNotification`) to emit `newNotification` event (for friend requests/accepts) to recipient socket.
+    *   Updated `postController` (local `createNotification`) to emit `newNotification` event (for likes/comments) to recipient socket.
+    *   Created `client/src/context/SocketContext.jsx` (converted from TSX) to manage connection, emit `storeUserId`.
+    *   Wrapped client `App` component in `SocketProvider`.
+    *   Added client-side listeners (`socket.on`) for `newMessage` in `MessagesPage.js`.
+    *   Added client-side listeners (`socket.on`) for `newNotification` in `NotificationsPage.js`.
+
+6.  **Error Handling & User Experience:**
+    *   Added centralized backend error handling (`errorHandler`, `notFoundHandler` middleware in `server.js`).
+    *   Refactored all major server controllers (`auth`, `post`, `user`, `dm`, `notification`, `friend`) to use `next(error)` and added input validation.
+    *   Enabled Axios response interceptor in `client/src/api/axiosConfig.js` for automatic 401 handling.
+    *   Installed `react-toastify` and added `ToastContainer` to `client/src/App.js`.
+    *   Added basic toast notifications for errors/success in key components (Login, Register, Profile, Edit Profile, Messages, Notifications).
+    *   Added basic loading state display to `MessagesPage` and `NotificationsPage`.
+    *   Added backend endpoint (`PATCH /api/notifications/:notificationId/read`) and controller (`markSingleNotificationRead`) for marking individual notifications read.
+    *   Added frontend `onClick` handler in `NotificationsPage` to call the new endpoint and navigate.
+
+7.  **Security Audit & Auth Middleware:**
+    *   Ran `npm audit` (Server: 0 vulns; Client: 8 vulns remain, `--force` skipped).
+    *   Confirmed `protect` middleware is uncommented and applied to necessary routes in `post`, `user`, `dm`, `notification`, `friend` route files.
+
+8.  **Code Cleanup:**
+    *   Fixed ESLint warnings in `client/src/pages/ProfilePage.js` (unused vars, useEffect deps).
+    *   Reviewed `UPLOAD_URL` constant (kept as necessary for local dev).
+    *   Removed temporary `console.log` statements from client pages (Login, Register, Profile).
+    *   Updated outdated comments in route files regarding authentication.
+
+### Next Steps & Recommendations:
+
+1.  **Frontend Testing & Debugging (Continued):**
+    *   **Investigate Missing Posts:** Confirm if the specific user (`testuser1`) has posts in the database. If not, create one via UI to test rendering. If posts exist but aren't shown, re-debug data flow in `ProfilePage.js` (API response structure, state update timing).
+    *   **Address PostCard Vibration:**
+        *   Simplify CSS for `.avatar` / `.profileAvatar` in `PostCard.css` and `ProfilePage.css` to minimal rules (width, height, border-radius) to isolate the issue.
+        *   If CSS simplification doesn't help, further investigate potential rapid re-renders in `PostCard.js` (e.g., using React DevTools Profiler).
+    *   **Verify Image Display:** Ensure `default-avatar.png` is correctly placed in `client/public` and check browser network tab for any image loading errors (including the actual user profile pics loaded from backend `uploads` path).
+    *   **Continue Manual UI Testing:** Once core display issues are resolved, test:
+        *   Home feed (scrolling, liking/commenting via UI)
+        *   Creating posts (UI form)
+        *   Viewing single post page
+        *   Sending/Accepting friend requests via UI
+        *   Viewing/Sending DMs via UI
+        *   Viewing Notifications page
+        *   Editing profile
+
+2.  **Backend Testing (Remaining):**
+    *   Test Update User Profile (`PUT /api/users/me` - requires form-data client or tool setup).
+    *   Test Search endpoints (`GET /api/users/search`, `GET /api/posts/search`).
+    *   Test User Suggestions (`GET /api/users/suggestions`).
+    *   Implement and test remaining Friend routes (Reject/Cancel/Remove).
+    *   Implement and test Pin/Unpin Post (`POST /api/posts/:postId/pin` with auth checks).
+
+3.  **Real-time Client Implementation (Refinement):**
+    *   Verify UI updates correctly reflect incoming socket events (`newMessage`, `newNotification`).
+    *   Test scroll behavior in `MessagesPage` on new messages.
+    *   Consider adding unread counts to Navbar based on socket events or notification state.
+
+4.  **Code Review & Cleanup:**
+    *   Remove remaining `console.log` statements used for debugging.
+    *   Review remaining `TODO` comments.
+    *   Address remaining 8 client vulnerabilities (manual dependency updates or risk acceptance).
+    *   Review route access control (e.g., should post/comment GET routes be public?).
+
+5.  **Testing (Automated - Deferred):**
+    *   Write unit/integration tests for backend and frontend.
+    *   Perform end-to-end testing.
+
+6.  **Deployment:**
+    *   Set up build process, choose hosting, configure deployment.
+
+7.  **Security Audit:**
+    *   Review backend input validation and authorization thoroughly.
+    *   Check dependencies for known vulnerabilities (`npm audit`).
+    *   Ensure `.env` file is added to `.gitignore`.
+
+8.  **Code Cleanup:**
+    *   Review the `UPLOAD_URL` constant in frontend components - is it still needed or can relative paths work?
+    *   Remove any remaining temporary `console.log` statements.
+    *   Consider enabling and refining the Axios response interceptor in `axiosConfig.js` for automatic 401 handling. 

@@ -1,0 +1,171 @@
+/* MessagesPage Styles */
+
+.messagesPageLayout {
+    display: flex;
+    /* Use flexbox for height or fixed height depending on layout needs */
+    /* Example: height: calc(100vh - 80px); */
+    height: 75vh; /* Fixed height example, adjust as needed */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* Friend List Sidebar */
+.friendListContainer {
+    width: 250px;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: #f8f9fa; /* Light background for sidebar */
+    flex-shrink: 0;
+}
+
+.friendListContainer h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.friendList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.friendListItem {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.friendListItem:hover {
+    background-color: #e9ecef;
+}
+
+.friendListItem.selected {
+    background-color: #e0f2fe; /* Highlight selected friend */
+    font-weight: bold;
+}
+
+.friendAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+/* Chat Area */
+.chatArea {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.chatHeader {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.messageList {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px; /* Space for scrollbar */
+    margin-bottom: 15px;
+}
+
+.messageItem {
+    margin-bottom: 15px;
+    max-width: 70%;
+    clear: both; /* Ensure items don't overlap weirdly */
+}
+
+.messageItem.outgoing {
+    margin-left: auto; /* Align outgoing messages to the right */
+    background-color: #dcf8c6; /* Light green for outgoing */
+    border-radius: 8px 8px 0 8px;
+    padding: 8px 12px;
+    text-align: right;
+}
+
+.messageItem.incoming {
+    margin-right: auto; /* Align incoming messages to the left */
+    background-color: #f1f0f0; /* Light grey for incoming */
+    border-radius: 8px 8px 8px 0;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+.messageText {
+    margin: 0 0 5px 0;
+    white-space: pre-wrap; /* Respect line breaks */
+    word-wrap: break-word;
+}
+
+.messageMedia {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 4px;
+    margin-top: 5px;
+    display: block;
+}
+
+.messageTimestamp {
+    font-size: 0.75em;
+    color: #777;
+    display: block; /* Ensure it appears on its own line */
+    margin-top: 3px;
+}
+
+.messageForm {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.messageInput {
+    flex-grow: 1;
+    margin-right: 10px;
+    /* Uses global input styles */
+}
+
+.messageForm input[type="file"] {
+    /* Basic styling for file input, hide default look if desired */
+     width: auto; /* Override global 100% width */
+     margin-bottom: 0; /* Override global margin */
+}
+
+.messageForm button {
+    flex-shrink: 0;
+    /* Uses global button styles */
+}
+
+.noChatSelected {
+    text-align: center;
+    color: #777;
+    font-size: 1.1rem;
+    margin-top: 50px;
+}
+
+.messagesError {
+    color: red;
+    margin-top: 5px;
+    font-size: 0.9em;
+} 

@@ -1,0 +1,19 @@
+/* NotFoundPage Styles */
+
+.notFoundContainer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.notFoundContainer h1 {
+    color: #666;
+}
+
+.notFoundContainer p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.notFoundContainer a {
+    /* Uses global link styles */
+} 

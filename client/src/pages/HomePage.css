@@ -1,0 +1,46 @@
+/* HomePage Styles */
+
+.searchForm {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    gap: 10px; /* Add space between input and buttons */
+}
+
+.searchInput {
+    flex-grow: 1;
+    /* Assuming global input styles are applied */
+    /* Add specific overrides if needed */
+}
+
+.searchButton {
+    /* Assuming global button styles are applied */
+    /* Add specific overrides if needed */
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.clearSearchButton {
+    /* Assuming global button styles are applied */
+    /* Example specific styles: */
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    color: #495057;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.clearSearchButton:hover {
+    background-color: #ced4da;
+}
+
+.postListTitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.feedError {
+    color: red;
+    margin-bottom: 15px;
+} 

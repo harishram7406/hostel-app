@@ -1,0 +1,91 @@
+/* NotificationsPage Styles */
+
+.notificationsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee; /* Add separator */
+    padding-bottom: 10px;
+}
+
+.notificationsHeader h1 {
+    margin: 0;
+}
+
+.markAllButton {
+    font-size: 0.9em;
+    /* Uses global button styles */
+}
+
+.notificationList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notificationItem {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    position: relative; /* For unread dot positioning if needed */
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.notificationItem:last-child {
+    border-bottom: none;
+}
+
+.notificationItem.unread {
+    background-color: #e7f3ff; /* Highlight unread */
+    font-weight: bold; /* Make unread text bolder */
+}
+
+.notificationItem.unread .notificationLink {
+    color: #0056b3; /* Darker blue for unread link */
+}
+
+
+.notificationAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.notificationContent {
+    flex-grow: 1;
+}
+
+.notificationLink {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.notificationLink:hover {
+    text-decoration: underline;
+}
+
+.notificationTimestamp {
+    font-size: 0.8em;
+    color: #777;
+}
+
+.unreadIndicator {
+    width: 8px;
+    height: 8px;
+    background-color: #007bff; /* Blue dot for unread */
+    border-radius: 50%;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.notificationsError {
+    color: red;
+} 

@@ -1,0 +1,136 @@
+/* SinglePostPage Styles */
+
+.singlePostContainer {
+    max-width: 800px; /* Or your preferred max width */
+    margin: 20px auto;
+}
+
+.backLink {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.backLink:hover {
+    text-decoration: underline;
+}
+
+.postLayout {
+    /* Basic layout, can adjust later (e.g., sidebar for comments) */
+}
+
+.postCardWrapper {
+    margin-bottom: 30px;
+}
+
+.commentsSection {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+.commentsSection h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.commentForm {
+    margin-bottom: 25px;
+}
+
+.commentForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    resize: vertical; /* Allow vertical resize */
+    min-height: 60px;
+}
+
+.commentForm button {
+    /* Uses global button styles */
+    padding: 8px 15px;
+}
+
+.commentError {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.commentsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.commentItem {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+.commentHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    position: relative; /* For positioning delete button */
+}
+
+.commentAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.commentAuthor {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    margin-right: 5px;
+}
+.commentAuthor:hover {
+    text-decoration: underline;
+}
+
+.commentTimestamp {
+    color: #777;
+    font-size: 0.8em;
+}
+
+.commentText {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Error message specific to the post itself (if any) */
+.postError {
+    color: #d9534f; /* Bootstrap danger color */
+    padding: 15px;
+    border: 1px solid #d9534f;
+    border-radius: 4px;
+    background-color: #f2dede;
+}
+
+.deleteCommentButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 0 2px;
+    line-height: 1;
+}
+
+.deleteCommentButton:hover {
+    color: #f00;
+} 
