@@ -13,10 +13,6 @@ const RegisterPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    // Initialize hostelName to the first option or empty string
-    const hostelOptions = ["Hostel 1", "Hostel 2", "Hostel 3", "Hostel 4", "Hostel 5"];
-    const [hostelName, setHostelName] = useState(hostelOptions[0]); // Default to first hostel
-    const [roomNumber, setRoomNumber] = useState(''); 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [fieldErrors, setFieldErrors] = useState({}); // Field-specific errors

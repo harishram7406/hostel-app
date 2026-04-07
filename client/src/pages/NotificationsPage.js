@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react';
 // import axios from 'axios'; - No longer needed
 import apiClient from '../api/axiosConfig'; // Import apiClient
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App';
 import { useSocket } from '../context/SocketContext'; // Import useSocket
 import { toast } from 'react-toastify'; // Import toast
 import './NotificationsPage.css';
-
-// const API_URL = 'http://localhost:5000/api'; - No longer needed
-const UPLOAD_URL = 'http://localhost:5000/'; // Keep for media display
 
 // Helper function to format date
 const formatDate = (dateString) => {

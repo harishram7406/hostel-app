@@ -9,9 +9,6 @@ import PostCard from '../components/PostCard';
 import { toast } from 'react-toastify'; // Import toast
 import './SinglePostPage.css'; // Import CSS
 
-// const API_URL = 'http://localhost:5000/api'; - No longer needed
-
-const UPLOAD_URL = 'http://localhost:5000/'; // Needed for comment author avatars
 const timeSince = (date) => {
     const seconds = Math.floor((new Date() - new Date(date)) / 1000);
     let interval = seconds / 31536000;

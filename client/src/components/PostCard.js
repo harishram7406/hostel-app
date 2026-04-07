@@ -10,9 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faHeartRegular, faComment } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 
-// const API_URL = 'http://localhost:5000/api'; - No longer needed
-const UPLOAD_URL = 'http://localhost:5000/'; // Base URL for uploads (keep if needed for direct media display)
-
 // Helper function to format time difference
 const timeSince = (date) => {
     const seconds = Math.floor((new Date() - new Date(date)) / 1000);

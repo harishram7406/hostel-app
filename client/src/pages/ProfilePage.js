@@ -8,9 +8,6 @@ import EditProfileModal from '../components/EditProfileModal';
 import { toast } from 'react-toastify'; // Import toast
 import './ProfilePage.css';
 
-// const API_URL = 'http://localhost:5000/api'; - No longer needed
-const UPLOAD_URL = 'http://localhost:5000/'; // Keep for media display
-
 const ProfilePage = () => {
     const { username } = useParams();
     const { user } = useContext(AuthContext);
