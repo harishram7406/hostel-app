@@ -5,9 +5,16 @@
 pipeline {
     agent any
 
+    // Auto-build when origin/main changes: Jenkins polls GitHub on a schedule (no inbound URL needed).
+    // Cron: H/5 = ~every 5 min (spread load). Use H/15 * * * * for every 15 min.
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+
     options {
         timestamps()
         disableConcurrentBuilds(abortPrevious: true)
+        buildDiscarder(logRotator(numToKeepStr: '20', artifactNumToKeepStr: '5'))
     }
 
     environment {
